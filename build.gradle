@@ -13,6 +13,8 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven { url 'https://jitpack.io' }
+    maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'http://maven.ecs.soton.ac.uk/content/repositories/thirdparty/' }
 }
 
 configurations {
@@ -31,7 +33,9 @@ dependencies {
     // compile
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
-    compile 'com.github.sarxos:webcam-capture:0.3.10'
+    compile 'com.github.sarxos:webcam-capture:0.3.13-SNAPSHOT'
+    compile 'com.nativelibs4java:bridj:0.7-20140918-2'
+    compile 'org.slf4j:slf4j-log4j12:1.7.25'
 
     // processing
     processing group: 'org.processing', name: 'core', version: '3.3.7'
