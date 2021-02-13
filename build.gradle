@@ -14,7 +14,8 @@ repositories {
     mavenLocal()
     maven { url 'https://jitpack.io' }
     maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
-    maven { url 'http://maven.ecs.soton.ac.uk/content/repositories/thirdparty/' }
+    //maven { url 'http://maven.ecs.soton.ac.uk/content/repositories/thirdparty/' }
+    maven { url 'http://maven.openimaj.org' }
 }
 
 configurations {
@@ -34,7 +35,9 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
     compile 'com.github.sarxos:webcam-capture:0.3.13-SNAPSHOT'
-    compile 'com.nativelibs4java:bridj:0.7-20140918-2'
+    compile 'com.nativelibs4java:bridj:0.7-20140918-3'
+    //compile 'com.github.sarxos:webcam-capture-driver-openimaj:0.3.13-SNAPSHOT'
+
     compile 'org.slf4j:slf4j-log4j12:1.7.25'
 
     // processing
