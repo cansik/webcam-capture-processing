@@ -1,0 +1,51 @@
+plugins {
+    id 'java-library'
+}
+
+group 'ch.bildspur'
+version '0.1.0'
+
+sourceCompatibility = 1.8
+
+def outputName = 'webcamcapture'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url 'https://jitpack.io' }
+}
+
+configurations {
+    jar.archiveName = outputName + '.jar'
+
+    processing
+    compile.extendsFrom processing
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.runtime
+}
+
+dependencies {
+    // compile
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile 'com.github.sarxos:webcam-capture:0.3.10'
+
+    // processing
+    processing group: 'org.processing', name: 'core', version: '3.3.7'
+    processing group: 'org.jogamp.jogl', name: 'jogl-all-main', version: '2.3.2'
+    processing group: 'org.jogamp.gluegen', name: 'gluegen-rt-main', version: '2.3.2'
+}
+
+task fatJar(type: Jar) {
+    archiveName = "$outputName-complete.jar"
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.processing).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    with jar
+}
