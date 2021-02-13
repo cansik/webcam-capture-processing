@@ -2,6 +2,8 @@
 A very basic webcam capture solution for processing.
 
 ```processing
+import ch.bildspur.video.*;
+
 Capture cam;
 
 public void setup() {
@@ -21,3 +23,6 @@ public void draw() {
     image(cam, 0, 0, width, height);
 }
 ```
+
+### About
+Developed by cansik - based on [webcam-capture](https://github.com/sarxos/webcam-capture)
