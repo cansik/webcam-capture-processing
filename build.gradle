@@ -33,6 +33,8 @@ dependencies {
 
     compile 'com.github.sarxos:webcam-capture:0.3.12'
     // compile 'com.github.sarxos:webcam-capture-driver-openimaj:0.3.12'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.33'
+
 
     // processing
     processing group: 'org.processing', name: 'core', version: '3.3.7'
